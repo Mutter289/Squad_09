@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"/>
     <link rel="stylesheet" href="../csss/perfil.css">
     <link rel="stylesheet" href="../csss/sidebar.css">
+    <link rel="stylesheet" href="../csss/themes.css">
 </head>
 <body>
     <aside class="sidebar">
         <!-- Side bar header -->
         <header class="sidebar-header">
-            <a href="#" class="header-logo">
+            <a href="../index.html" class="header-logo">
                 <img src="../imgs/logo1.jpeg" alt="Banese Card">
             </a>
             <button class="toggler sidebar-toggler">
@@ -95,10 +96,17 @@
             </ul>
         </nav>
     </aside>
+
+    <div class="theme-button-cont">
+        <button id="theme-toggle">
+            <img src="imgs/light_mode.png" alt="">
+        </button>
+    </div>
+
     <div class="container">
     <div class="profile-container">
         <div class="profile-header">
-            <img src="../imgs/dashboard/default-avatar.png" alt="Foto do Perfil" class="profile-picture">
+            <img src="../imgs/perfil/logousuario.png" alt="Foto do Perfil" class="profile-picture">
             <h1 id="profile-name">Nome do Gestor</h1>
             <p id="profile-id">ID: 123456</p>
         </div>
@@ -145,11 +153,11 @@
             <div class="second-row">
                 <section class="preferences-section">
                     <h2>Preferências</h2>
-                    <div class="theme-toggle">
-                        <label for="theme">Tema:</label>
-                        <select id="theme">
-                            <option value="light">Claro</option>
-                            <option value="dark">Escuro</option>
+                    <div class="theme-toggle-perfil">
+                        <label for="theme-perfil">Tema:</label>
+                        <select name="theme" id="theme-perfil">
+                        <option value="light">Claro</option>
+                        <option value="dark">Escuro</option>
                         </select>
                     </div>
                     <div class="notifications-toggle">
@@ -163,68 +171,7 @@
 </div>
     <script src="../jss/sidebar.js"></script>
     <script src="../jss/logoutHTMLS.js"></script>
-    <script>
-        // Função para inicializar o IndexedDB e criar a tabela 'gestores'
-        function initIndexedDB() {
-            return new Promise((resolve, reject) => {
-                const request = indexedDB.open("gestoresDB", 1);
-    
-                request.onupgradeneeded = (event) => {
-                    const db = event.target.result;
-                    if (!db.objectStoreNames.contains("gestores")) {
-                        const store = db.createObjectStore("gestores", { keyPath: "id", autoIncrement: true });
-                        store.createIndex("nome", "nome", { unique: false });
-                    }
-                };
-    
-                request.onsuccess = () => resolve(request.result);
-                request.onerror = () => reject(request.error);
-            });
-        }
-    
-        // Função para buscar dados do gestor logado pelo ID
-        async function loadGestorPerfil() {
-            const db = await initIndexedDB();
-            const transaction = db.transaction("gestores", "readonly");
-            const store = transaction.objectStore("gestores");
-    
-            // Pegando o ID do gestor do localStorage
-            const gestorId = localStorage.getItem("gestorId");
-    
-            if (gestorId) {
-                // Buscando o gestor pelo ID
-                const gestor = await new Promise((resolve, reject) => {
-                    const request = store.get(parseInt(gestorId)); // Garantir que o ID seja inteiro
-                    request.onsuccess = () => resolve(request.result);
-                    request.onerror = () => reject(request.error);
-                });
-    
-                if (gestor) {
-                    // Atualizando os campos do perfil com as informações do gestor
-                    document.getElementById("profile-name").textContent = gestor.nome;
-                    document.getElementById("profile-id").textContent = `ID: ${gestor.id}`;
-                    document.getElementById("profile-email").textContent = `Email: ${gestor.email || "Não definido"}`; // Exemplo, caso o campo email esteja presente no banco
-                } else {
-                    console.error("Gestor não encontrado.");
-                    document.getElementById("profile-name").textContent = "Gestor não encontrado.";
-                }
-            } else {
-                console.error("ID do gestor não encontrado no localStorage.");
-                document.getElementById("profile-name").textContent = "Usuário não autenticado.";
-            }
-        }
-    
-        // Inicializar a página de perfil
-        document.addEventListener("DOMContentLoaded", async () => {
-            await loadGestorPerfil(); // Carregar o perfil do gestor logado
-        });
-    
-        // Logout
-        document.getElementById("logoutButton").addEventListener("click", function() {
-            localStorage.removeItem("isAuthenticated");
-            localStorage.removeItem("gestorId"); // Remover o ID do gestor ao sair
-            window.location.href = "login.html"; // Redirecionar para a tela de login
-        });
-    </script>      
+    <script src="../jss/themes.js"></script>
+    <script src="../jss/perfil.js"></script>      
 </body>
 </html>

@@ -19,7 +19,7 @@ body {
   top: 0;
   left: 0;
   z-index: 100;
-  background: #151a2d;
+  background: #222f3b;
   width: 270px;
   position: fixed !important;
   margin: 16px;
@@ -175,10 +175,12 @@ body.light-theme {
 
 body.light-theme .sidebar {
   background: #ddfff9; /* Claro */
+  border-radius: 16px;
 }
 
 body.light-theme .sidebar-header {
   background: #ddfff9; /* Escuro */
+  border-radius: 16px;
   color: #fff;
 }
 

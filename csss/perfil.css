@@ -31,7 +31,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #005e52;
     padding: 20px;
     width: 100%;
     color: white;
@@ -64,6 +63,8 @@ body {
     gap: 20px;
 }
 
+
+
 .first-row, .second-row {
     display: flex;
     justify-content: space-between;
@@ -72,7 +73,6 @@ body {
 /* Seções */
 section {
     flex: 1;
-    background-color: #005e52;
     padding: 15px;
     border-radius: 8px;
     color: white;
@@ -106,14 +106,14 @@ input:focus, select:focus {
     box-shadow: 0 0 5px #00b766;
 }
 
-button {
+.save-btn {
     background-color: #00b766;
     color: black;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
 
-button:hover {
+.save-btn:hover {
     color: white;
     transition: 0.5s ease;
 }
@@ -129,4 +129,22 @@ button:hover {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+/* ===== Tema Claro ===== */
+
+body.light-theme .profile-container {
+    background-color: #4b9f6f;
+
+}
+
+body.light-theme .save-btn {
+    background-color: #6fc981;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+body.light-theme .save-btn:hover {
+    background-color: #2e7c4f;
+    color: white;
 }

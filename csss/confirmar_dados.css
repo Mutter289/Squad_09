@@ -175,7 +175,7 @@ h2 {
     color: black;
 }
 
-button {
+#editar_campanha_button {
     cursor: pointer;
     font-size: 1.2rem;
     color: white;
@@ -183,9 +183,10 @@ button {
     padding: 10px;
     border-radius: 8px;
     border: none;
+    transition: 0.5s ease;
 }
 
-button:hover {
+#editar_campanha_button:hover {
     background-color: #004d40;
 }
 
@@ -208,4 +209,41 @@ button:hover {
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000; /* Garante que fique sobre outros elementos */
+}
+
+
+/* ===== Tema Claro ===== */
+
+
+body.light-theme .categorizacaoCampanha, body.light-theme .estabelecimentosComerciaisCampanha,
+body.light-theme .dataInicioCampanha, body.light-theme .dataTerminoCampanha, 
+body.light-theme .MCCSCampanha,body.light-theme .premioCampanha,
+body.light-theme .limiteCashbackCampanha, body.light-theme .modosEntradaCampanha,
+body.light-theme .cartoesCampanha, body.light-theme .mecanicaCampanha,
+body.light-theme .nome-campanha, body.light-theme .descricao-campanha {
+    background-color:#63b573;
+    color: white;
+}
+
+body.light-theme .cartoesTitle, body.light-theme .mecanicaTitle, body.light-theme .categorizacaoTitle,
+body.light-theme .premioTitle, body.light-theme .limiteCashbackTitle, body.light-theme .dataInicioTitle, 
+body.light-theme .estabelecimentosComerciaisTitle, body.light-theme .dataTerminoTitle, 
+body.light-theme .MCCSTitle, body.light-theme .modosEntradaTitle {
+    color: white;
+}
+
+body.light-theme #editar_campanha_button, body.light-theme .salvar_continuar {
+    background-color: #6fc981;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
+    transition: 0.5s ease;
+}
+
+body.light-theme #editar_campanha_button:hover, body.light-theme .salvar_continuar:hover {
+    background-color: #29794c;
+    color: white;
+}
+
+body.light-theme form {
+    background-color: #4b9f6f;
+    color: white;
 }

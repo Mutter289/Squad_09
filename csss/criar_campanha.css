@@ -809,3 +809,32 @@ button.ativo {
     color: white;
     border: 2px solid #005e52; /* Borda branca */
   }
+
+
+/* ===== Tema Claro ===== */
+
+body.light-theme h1, body.light-theme h2, body.light-theme h3, body.light-theme h4,
+body.light-theme p, body.light-theme label, body.light-theme .data-title {
+    color: white;
+}
+
+body.light-theme form, body.light-theme .input-data, body.light-theme .input{
+    background-color: #4b9f6f;
+}
+
+body.light-theme .opcao div p, body.light-theme .opcoes_cartao p, body.light-theme .opcoes-mecanicas p, 
+body.light-theme .custom-upload-btn, body.light-theme .dropdown-button, 
+body.light-theme .salvar_continuar {
+    background-color: #63b573;
+    color: white;
+
+}
+
+/* body.light-theme .slider-grande {
+    background-color: rgb(42, 255, 159);
+} */
+
+body.light-theme .custom-upload-btn {
+    background-color: #63b573;
+    color: white;
+}

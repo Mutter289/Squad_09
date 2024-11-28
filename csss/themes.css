@@ -1,0 +1,28 @@
+.theme-button-cont{
+    display: flex;
+    z-index: 100;
+    position: fixed;
+    justify-content: right;
+    align-items: center;
+    top: 30px;
+    right: 30px;
+    margin: 0px;
+}
+
+#theme-toggle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    cursor: pointer;
+}
+
+#theme-toggle img {
+    width: 65%;
+    height: 65%;
+    cursor: pointer;
+    object-fit: contain; /* ou 'cover', dependendo do efeito desejado */
+}

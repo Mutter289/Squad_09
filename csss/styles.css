@@ -6,12 +6,12 @@
 }
 
 .campanha {
-    background-color: #55a630; /* Cor de fundo da campanha */
+    background-color: #006644 ; /* Cor de fundo da campanha */
     margin: 20px;
     padding: 20px; /* Adiciona preenchimento ao redor do conteúdo */
     border-radius: 1em; /* Bordas arredondadas */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    color: #00b766;
+    color: #e0e0e0;
 }
 
 .filtros {
@@ -72,15 +72,16 @@
     font-weight: 600;
     border: 0 transparent;
     border-radius: 10px;
-    background-color: #00b766;
-    color: black;
+    background-color: #008C60 ; /* Verde mais fechado para botões */
+    color: white;
     transition: 0.4s ease;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .pesquisar-filtro:hover {
-    color: #fff;
+    color: white;
+    background-color: #00b766; /* Verde mais claro para o hover */
 }
 
 .titulo-tabela {
@@ -95,14 +96,15 @@
 
 .card {
     display: flex;
-    width: 100%; /* Ajusta a largura para ocupar todo o espaço disponível */
+    width: 100%;
     padding: 5px;
-    color: #f8f6f0; /* Cor do texto */
+    color: #e0e0e0; /* Cor do texto claro */
     justify-content: space-between;
-    align-items: flex-start; /* Alinha itens ao topo do card */
-    border-radius: 8px; /* Bordas arredondadas */
-    overflow: hidden; /* Esconde qualquer conteúdo que extrapole os limites do card */
+    align-items: flex-start;
+    border-radius: 8px;
+    overflow: hidden;
     margin-bottom: 20px;
+    background-color: #006644 ; /* Verde escuro */
 }
 
 body {
@@ -112,10 +114,12 @@ body {
 .tabela-pesquisa {
     border: 1px transparent;
     border-radius: 10px;
-    margin: 20px auto; /* Centraliza o container na página */
-    background-color:  #55a630;
-    max-width: 800px; /* Limita a largura do container */
+    margin: 20px auto;
+    background-color: #006644 ; /* Verde escuro */
+    max-width: 800px;
     color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
 }
 
 .input-group-nome-desc {
@@ -137,7 +141,7 @@ body {
 
 .input {
     width: 100%;
-    border: 2px solid #ccc;
+    border: 2px solid #4b7c5d;
     border-bottom: 2px solid #ccc;
     border-radius: 5px;
     padding: 5px;
@@ -312,20 +316,20 @@ form .input-group-data .input-item .input-data:valid ~ label {
 .card-button {
     padding: 10px;
     margin: 0 0 10px 0;
-    background-color: #00b766;
+    background-color: #008C60 ; /* Verde mais sóbrio */
     font-size: 18px;
     border: 0 transparent;
     border-radius: 10px;
-    color: black;
+    color: white;
     font-weight: 600;
     transition: 0.4s ease;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .card-button:hover {
     color: white;
-    background-color: #00b766;
+    background-color: #00b766; /* Verde mais claro para o hover */
 }
 
 .nameDesc {
@@ -342,6 +346,7 @@ form .input-group-data .input-item .input-data:valid ~ label {
     text-overflow: ellipsis;
     text-align: center;
     display: flex;
+    color: #e0e0e0;
     white-space: normal;
     line-height: 1.5em; /* Ajuste para corresponder ao espaçamento entre linhas */
     max-height: 4.3em; /* Limita a altura para 2 linhas (2 * line-height) */
@@ -354,6 +359,7 @@ form .input-group-data .input-item .input-data:valid ~ label {
     text-overflow: ellipsis;
     text-align: center;
     white-space: nowrap;
+    color: #e0e0e0;
     line-height: 1.5em; /* Ajuste para corresponder ao espaçamento entre linhas */
     max-height: 1.3em; /* Limita a altura para 2 linhas (2 * line-height) */
     width: 100%; /* Adiciona reticências ao final */
@@ -379,12 +385,16 @@ form .input-group-data .input-item .input-data:valid ~ label {
 /* /////// Light Theme v //////// */
 
 body.light-theme #theme-toggle {
-    background-color: #ebfff8;
-    color: #151a2d;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 body.light-theme .campanha {
-    background-color: #328d13; /* Claro */
+    background-color: #4b9f6f; /* Claro */
     color: #151a2d; /* Escuro */
 }
 body.light-theme .input {
@@ -404,24 +414,29 @@ body.light-theme .select-status {
 
 /* Botão de pesquisa no tema claro */
 body.light-theme .pesquisar-filtro {
-    background-color: #1b4d09;
+    background-color: #63b573;
     color: #ffffff;
 }
 
 /* Cards no tema claro */
 body.light-theme .card {
-    background-color: #328d13; /* Claro */
+    background-color: #4b9f6f; /* Claro */
     color: #ffffff; /* Escuro */
 }
 
 
 /* Botões do card no tema claro */
 body.light-theme .card-button {
-    background-color: #1b4d09;
-    color: #d6fdf6;
+    background-color: #63b573;
+    color: #ffffff;
+}
+
+body.light-theme .card-button:hover, 
+body.light-theme .pesquisar-filtro:hover {
+    background-color: #328d13; /* Verde mais vibrante para o hover */
 }
 
 /* Tabela de pesquisa no tema claro */
 body.light-theme .tabela-pesquisa {
-    background-color: #328d13;
+    background-color: #4b9f6f;
 }
