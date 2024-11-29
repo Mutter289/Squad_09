@@ -110,7 +110,7 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
 }
 
 .salvar_continuar {
@@ -736,8 +736,8 @@ form .input-group-data .input-item .input-data:valid ~ label {
 .div-data {
     display: flex;
     flex-direction: column;
-    gap: 3px;
-    margin: 10px;
+    gap: 10px;
+    padding: 0 10px 0 60px;
 }
 
 #start-day, #end-day {
@@ -845,4 +845,38 @@ body.light-theme .custom-upload-btn {
 
 h2, h1 {
     color: #fff !important;
+}
+#recommendations {
+    max-height: 70px; /* Limite de altura */
+    overflow-y: auto; /* Habilita rolagem vertical */
+    padding: 10px;
+    list-style: none;
+    margin: 0;
+}
+#recommendations li {
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+}
+#recommendations li:hover {
+    background-color: #ececec;
+}
+
+#selected-estabelecimentos-list {
+    max-height: 70px; /* Limite de altura */
+    overflow-y: auto; /* Habilita rolagem vertical */
+    padding: 10px;
+    list-style: none;
+    margin: 0;
+}
+.selected-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.remove-btn {
+    margin-left: 10px;
+    color: red;
+    cursor: pointer;
 }
