@@ -114,7 +114,7 @@ function createCampaignElement(campanha) {
                             <p>${campanha.descricao}</p>
                         </div>
                         <div class="img">
-                            <img src="${campanha.imagem || 'imgs/default.jpg'}" alt="${campanha.nome}" />
+                            <img src="${campanha.imagem || 'imgs/default.jpg'}" alt="" />
                         </div>
                     </div>
                     <div class="card-buttons">
