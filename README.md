@@ -55,5 +55,5 @@ Abaixo está uma breve explicação sobre os diretórios principais do projeto:
 - htmls/: Contém as páginas HTML.
 - css/: Contém os estilos CSS.
 - js/: Contém os arquivos JavaScript.
-- assets/: Contém imagens e outros arquivos estáticos.
+- imgs/: Contém imagens.
 
