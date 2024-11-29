@@ -5,6 +5,10 @@
     flex-wrap: wrap; /* Ajuste para definir o espaçamento entre os itens */
 }
 
+.container-campanhas p {
+    color: white;
+}
+
 .campanha {
     background-color: #006644 ; /* Cor de fundo da campanha */
     margin: 20px;
@@ -439,4 +443,8 @@ body.light-theme .pesquisar-filtro:hover {
 /* Tabela de pesquisa no tema claro */
 body.light-theme .tabela-pesquisa {
     background-color: #4b9f6f;
+}
+
+body.light-theme .container-campanhas p {
+    color: black;
 }
