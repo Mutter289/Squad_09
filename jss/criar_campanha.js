@@ -415,6 +415,30 @@ fatoresCheckboxes.forEach(checkbox => {
 });
 
 
+document.getElementById('cashback-limit').addEventListener('input', function(e) {
+    let value = e.target.value;
+
+    // Remover tudo que não é número
+    value = value.replace(/\D/g, '');
+
+    // Separar parte inteira (antes da vírgula) e parte decimal (após a vírgula)
+    let integerPart = value.slice(0, -2); // Parte inteira: todos os números antes dos dois últimos
+    let decimalPart = value.slice(-2);    // Parte decimal: os dois últimos números
+
+    // Adicionar os pontos a cada 3 dígitos na parte inteira
+    integerPart = integerPart.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+
+    // Garantir que a parte decimal tenha sempre 2 dígitos
+    //decimalPart = decimalPart.padStart(2, '0');
+
+    // Montar o valor final no formato R$ xxx.xxx.xxx,xx
+    value = 'R$ ' + integerPart + ',' + decimalPart;
+
+    // Atualizar o valor no campo de input
+    e.target.value = value;
+});
+
+
 
 // Inicializa a funcionalidade drag and drop ao carregar a página
 document.addEventListener('DOMContentLoaded', initDragAndDrop);

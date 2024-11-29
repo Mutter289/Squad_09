@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
+    <title>Banese Card - Perfil</title>
+    <link rel="shortcut icon" href="../imgs/logo1.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"/>
     <link rel="stylesheet" href="../csss/perfil.css">
     <link rel="stylesheet" href="../csss/sidebar.css">
@@ -57,24 +58,10 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                    <span class="material-symbols-rounded">analytics</span>
-                    <span class="nav-label">Analytics</span>
-                    </a>
-                    <span class="nav-tooltip">Analytics</span>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
                     <span class="material-symbols-rounded">star</span>
                     <span class="nav-label">Minhas Campanhas</span>
                     </a>
                     <span class="nav-tooltip">Minhas Campanhas</span>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                    <span class="material-symbols-rounded">settings</span>
-                    <span class="nav-label">Configurações</span>
-                    </a>
-                    <span class="nav-tooltip">Configurações</span>
                 </li>
             </ul>
             <!-- second bottom nav -->
@@ -99,17 +86,31 @@
 
     <div class="theme-button-cont">
         <button id="theme-toggle">
-            <img src="imgs/light_mode.png" alt="">
+            <img src="../imgs/light_mode.png" alt="">
         </button>
     </div>
 
     <div class="container">
     <div class="profile-container">
         <div class="profile-header">
-            <img src="../imgs/perfil/logousuario.png" alt="Foto do Perfil" class="profile-picture">
+            <img src="../imgs/perfil/logousuario.png" alt="Foto do Perfil" class="profile-picture" id="profilePicture">
+            <button class="edit-button" id="editButton">
+                <svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#00000">
+                    <path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/>
+                </svg>
+            </button>
+
+            <div class="menu" id="menu" style="display:none;">
+                <button id="removePhoto">Remover Foto</button>
+                <button id="choosePhoto">Escolher Foto</button>
+            </div>
+
             <h1 id="profile-name">Nome do Gestor</h1>
             <p id="profile-id">ID: 123456</p>
+
+            <input type="file" id="fileInput" style="display:none;" />
         </div>
+
         <div class="profile-content">
             <!-- Dividindo em duas linhas -->
             <div class="first-row">
