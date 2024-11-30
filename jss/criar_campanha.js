@@ -439,121 +439,128 @@ document.getElementById('cashback-limit').addEventListener('input', function(e) 
 });
 
 
-        // Criando a base de dados IndexedDB com verificação
-        const dbName = "EstablishmentsDB";
-        const storeName = "establishments";
-        const establishments = [
-            { id: "001", name: "Gbarbosa" },
-            { id: "002", name: "Assaí" },
-            { id: "003", name: "Mix Matheus" },
-            { id: "004", name: "O Boticário" },
-            { id: "005", name: "Havan" }
-        ];
+//Não deu tempo de fazer funcionar
+// tipo, funciona soq tenho que alterar toda a forma que é salvo ai n consegui terminar a tempo
+        // // Criando a base de dados IndexedDB com verificação
+        // const dbName = "EstablishmentsDB";
+        // const storeName = "establishments";
+        // const establishments = [
+        //     { id: "001", name: "Gbarbosa" },
+        //     { id: "002", name: "Assaí" },
+        //     { id: "003", name: "Mix Matheus" },
+        //     { id: "004", name: "O Boticário" },
+        //     { id: "005", name: "Havan" }
+        // ];
 
-        const openDB = () => {
-            return new Promise((resolve, reject) => {
-                const request = indexedDB.open(dbName, 1);
-                request.onupgradeneeded = (event) => {
-                    const db = event.target.result;
-                    if (!db.objectStoreNames.contains(storeName)) {
-                        const store = db.createObjectStore(storeName, { keyPath: "id" });
-                        console.log("Object store created");
-                    }
-                };
-                request.onsuccess = (event) => resolve(event.target.result);
-                request.onerror = (event) => reject(event.target.error);
-            });
-        };
+        // const openDB = () => {
+        //     return new Promise((resolve, reject) => {
+        //         const request = indexedDB.open(dbName, 1);
+        //         request.onupgradeneeded = (event) => {
+        //             const db = event.target.result;
+        //             if (!db.objectStoreNames.contains(storeName)) {
+        //                 const store = db.createObjectStore(storeName, { keyPath: "id" });
+        //                 console.log("Object store created");
+        //             }
+        //         };
+        //         request.onsuccess = (event) => resolve(event.target.result);
+        //         request.onerror = (event) => reject(event.target.error);
+        //     });
+        // };
 
-        const populateDB = async () => {
-            const db = await openDB();
-            const transaction = db.transaction(storeName, "readwrite");
-            const store = transaction.objectStore(storeName);
+        // const populateDB = async () => {
+        //     const db = await openDB();
+        //     const transaction = db.transaction(storeName, "readwrite");
+        //     const store = transaction.objectStore(storeName);
 
-            const checkExisting = () => {
-                return new Promise((resolve, reject) => {
-                    const request = store.count();
-                    request.onsuccess = () => resolve(request.result);
-                    request.onerror = (event) => reject(event.target.error);
-                });
-            };
+        //     const checkExisting = () => {
+        //         return new Promise((resolve, reject) => {
+        //             const request = store.count();
+        //             request.onsuccess = () => resolve(request.result);
+        //             request.onerror = (event) => reject(event.target.error);
+        //         });
+        //     };
 
-            const existingCount = await checkExisting();
-            if (existingCount === 0) {
-                establishments.forEach(est => store.add(est));
-                console.log("Database populated with initial data");
-            } else {
-                console.log("Database already contains data, skipping population");
-            }
-        };
+        //     const existingCount = await checkExisting();
+        //     if (existingCount === 0) {
+        //         establishments.forEach(est => store.add(est));
+        //         console.log("Database populated with initial data");
+        //     } else {
+        //         console.log("Database already contains data, skipping population");
+        //     }
+        // };
 
-        populateDB();
+        // populateDB();
 
-        // Gerenciando interações
-        const searchInput = document.getElementById("estab-come");
-        const recommendationsList = document.getElementById("recommendations");
-        const selectedList = document.getElementById("selected-estabelecimentos-list");
+        // // Gerenciando interações
+        // const searchInput = document.getElementById("estab-come");
+        // const recommendationsList = document.getElementById("recommendations");
+        // const selectedList = document.getElementById("selected-estabelecimentos-list");
 
-        const fetchEstablishments = async (query) => {
-            const db = await openDB();
-            const transaction = db.transaction(storeName, "readonly");
-            const store = transaction.objectStore(storeName);
-            return new Promise((resolve, reject) => {
-                const results = [];
-                store.openCursor().onsuccess = (event) => {
-                    const cursor = event.target.result;
-                    if (cursor) {
-                        const { id, name } = cursor.value;
-                        if (id.includes(query) || name.toLowerCase().includes(query.toLowerCase())) {
-                            results.push(cursor.value);
-                        }
-                        cursor.continue();
-                    } else {
-                        resolve(results);
-                    }
-                };
-                transaction.onerror = (event) => reject(event.target.error);
-            });
-        };
+        // const fetchEstablishments = async (query) => {
+        //     const db = await openDB();
+        //     const transaction = db.transaction(storeName, "readonly");
+        //     const store = transaction.objectStore(storeName);
+        //     return new Promise((resolve, reject) => {
+        //         const results = [];
+        //         store.openCursor().onsuccess = (event) => {
+        //             const cursor = event.target.result;
+        //             if (cursor) {
+        //                 const { id, name } = cursor.value;
+        //                 if (id.includes(query) || name.toLowerCase().includes(query.toLowerCase())) {
+        //                     results.push(cursor.value);
+        //                 }
+        //                 cursor.continue();
+        //             } else {
+        //                 resolve(results);
+        //             }
+        //         };
+        //         transaction.onerror = (event) => reject(event.target.error);
+        //     });
+        // };
 
-        const updateRecommendations = async (query) => {
-            recommendationsList.innerHTML = "";
-            if (!query) return;
-            const matches = await fetchEstablishments(query);
-            matches.forEach(({ id, name }) => {
-                const li = document.createElement("li");
-                li.textContent = `${id} - ${name}`;
-                li.addEventListener("click", () => selectEstablishment({ id, name }));
-                recommendationsList.appendChild(li);
-            });
-        };
+        // const updateRecommendations = async (query) => {
+        //     recommendationsList.innerHTML = "";
+        //     if (!query) return;
+        //     const matches = await fetchEstablishments(query);
+        //     matches.forEach(({ id, name }) => {
+        //         const li = document.createElement("li");
+        //         li.textContent = `${id} - ${name}`;
+        //         li.addEventListener("click", () => selectEstablishment({ id, name }));
+        //         recommendationsList.appendChild(li);
+        //     });
+        // };
 
-        const selectEstablishment = ({ id, name }) => {
-            // Verificar se o estabelecimento já foi selecionado
-            const existingItems = Array.from(selectedList.children).map(item => item.textContent.trim());
-            if (existingItems.some(text => text.includes(`${id} - ${name}`))) {
-                alert("Este estabelecimento já foi selecionado.");
-                return; // Impede a seleção duplicada
-            }
+        // const selectEstablishment = ({ id, name }) => {
+        //     // Verificar se o estabelecimento já foi selecionado
+        //     const existingItems = Array.from(selectedList.children).map(item => item.textContent.trim());
+        //     if (existingItems.some(text => text.includes(`${id} - ${name}`))) {
+        //         alert("Este estabelecimento já foi selecionado.");
+        //         return; // Impede a seleção duplicada
+        //     }
 
-            const li = document.createElement("li");
-            li.className = "selected-item";
-            li.innerHTML = `
-                <span>${id} - ${name}</span>
-                <span class="remove-btn" onclick="removeSelection(this)"  style="color: red; cursor: pointer;">x</span>
-            `;
-            selectedList.appendChild(li);
-            searchInput.value = "";
-            recommendationsList.innerHTML = "";
-        };
+        //     const li = document.createElement("li");
+        //     li.className = "selected-item";
+        //     li.innerHTML = `
+        //         <span>${id} - ${name}</span>
+        //         <span class="remove-btn" onclick="removeSelection(this)"  style="color: red; cursor: pointer;">x</span>
+        //     `;
+        //     selectedList.appendChild(li);
+        //     searchInput.value = "";
+        //     recommendationsList.innerHTML = "";
+        // };
 
-        const removeSelection = (btn) => {
-            btn.parentElement.remove();
-        };
+        // const removeSelection = (btn) => {
+        //     btn.parentElement.remove();
+        // };
 
-        searchInput.addEventListener("input", (event) => {
-            updateRecommendations(event.target.value);
-        });
+        // searchInput.addEventListener("input", (event) => {
+        //     updateRecommendations(event.target.value);
+        // });
 
 // Inicializa a funcionalidade drag and drop ao carregar a página
 document.addEventListener('DOMContentLoaded', initDragAndDrop);
+
+// mas como não avaliaram pelo que foi solicitado e sim por parte de cliente que nem é web e sim deveria ser mobile dentro do proprio app
+// mas fzer oq né, fiz tudo pra nada.
+// foi um bom aprendizado.
+// tô bem triste F
