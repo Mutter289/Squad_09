@@ -1,3 +1,15 @@
+# **Informações de acesso para visualização do projeto**
+1. No campo ID Gestor: Gestor 1
+2. No campo Senha: senha1
+
+O motivo de não haver cadastro é que foi desenvolvido para ser um sistema interno, tendo como administração de acesso feita por terceiros.
+
+# **Rodando de forma web**
+
+Acessando o link abaixo:
+
+**[BaneseCard](https://mutter289.github.io/Squad_09/)**
+
 # **Como Rodar o Projeto Localmente**
 
 Este guia fornece as instruções para configurar e executar o projeto localmente em sua máquina.
